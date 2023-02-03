@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-3">
+    <h4 class="text-center ">Create your E Shop account</h4>
+
+    <div class="col-md-6 mx-auto my-3 p-4 border rounded">
+        <form action="/signup" method="post">
+          {% csrf_token %}
+          {% if error %}
+          <h5 class="text-center alert alert-danger">{{error}}</h5>
+          {% endif %}
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="username" name="username"  value="{{values.username}}" id="username" class="form-control" required>
+          </div>
+          
+            <div class="mb-3">
+              <label for="firstname" class="form-label">First Name</label>
+              <input type="text" name="firstname" value="{{values.first_name}}" id="firstname" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" name="lastname" value="{{values.last_name}}" id="lastname" class="form-control" required> 
+              </div>
+
+              <div class="mb-3">
+              <label for="phone" class="form-label">Phone</label>
+              <input type="text" name="phone" value="{{values.phone}}" id="phone" class="form-control" required>
+            </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">Email ID</label>
+                <input type="email" name="email"  value="{{values.email}}" id="email" class="form-control" placeholder="example@gmail.com" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="********" required>
+              </div>
+
+              <div class="form-group">
+                <input class="btn btn-secondary" type="submit" value="Create an account">
+              </div>
+            
+        </form>
+    </div>
+
+</div>
+
+
+{% endblock %}
